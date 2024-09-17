@@ -36,7 +36,8 @@ exports.unlikePost = async (req,res) => {
     try{
         const{post, like} = req.body;
         //find and delete the like collection me se
-        const deletedLike = await Like.findOneAndDelete({post:post, _id:like});
+        const deletedLike = await Like.findOneAndDelete({post:post, _id:like}); // Jo sabse phele entry milegi mein usko delete kardunga,, Jis 
+        // bhi entry ke andar ye dono parameters match karjayen , jis bhi pheli entry ke andar ye dono parameters match kar jaayen usko tum delete kar doge
 
         //udpate the post collection
         const udpatedPost = await Post.findByIdAndUpdate(post,
